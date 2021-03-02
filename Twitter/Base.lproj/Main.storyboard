@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="yqw-UE-plu">
             <objects>
-                <viewController id="OgH-Pq-gOd" sceneMemberID="viewController">
+                <viewController id="OgH-Pq-gOd" customClass="LoginViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vhe-bw-IX6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,6 +24,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.47239092201519717" green="0.73487463919392759" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="onLoginButton:" destination="OgH-Pq-gOd" eventType="touchUpInside" id="iVj-lP-7Zf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2rJ-jB-Lf1"/>
@@ -41,12 +44,12 @@
             </objects>
             <point key="canvasLocation" x="-935.20000000000005" y="-637.33133433283365"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Home-->
         <scene sceneID="PgN-kv-eAL">
             <objects>
-                <tableViewController id="bVh-oc-7cC" sceneMemberID="viewController">
+                <tableViewController id="bVh-oc-7cC" customClass="HomeTableViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="69a-NR-xsZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -64,7 +67,14 @@
                             <outlet property="delegate" destination="bVh-oc-7cC" id="4GT-kW-gk8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="2tX-Qy-FKs"/>
+                    <navigationItem key="navigationItem" title="Home" id="2tX-Qy-FKs">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="IWp-Lw-W9x">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onLogout:" destination="bVh-oc-7cC" id="qoJ-s2-HuU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CmX-QF-WeX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -73,10 +83,14 @@
         <!--Navigation Controller-->
         <scene sceneID="ylS-TX-TK5">
             <objects>
-                <navigationController id="27p-On-vxj" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" id="27p-On-vxj" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rbz-Az-Jlm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.47239092199999999" green="0.73487463919999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="bVh-oc-7cC" kind="relationship" relationship="rootViewController" id="ZCW-j1-Tds"/>
