@@ -1,4 +1,4 @@
-# Twitter - Part II
+# *Tweeter Repeater* - Part II
 
 This is a basic twitter app to view, compose, favorite, and retweet tweets.
 
